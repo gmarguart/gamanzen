@@ -1,14 +1,63 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-CL">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GamanZen — Centro de salud para la resiliencia</title>
-<meta name="description" content="GamanZen: acompañamiento clínico integral para el trauma y el bienestar emocional. Terapia online y encuentros presenciales en la naturaleza.">
+<title>Terapia para el trauma y la resiliencia | GamanZen</title>
+<meta name="description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado. Agenda tu primera sesión con GamanZen.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.gamanzen.cl/">
 <link rel="icon" type="image/png" href="assets/logo.png">
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GamanZen">
+<meta property="og:locale" content="es_CL">
+<meta property="og:title" content="Terapia para el trauma y la resiliencia | GamanZen">
+<meta property="og:description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado. Agenda tu primera sesión con GamanZen.">
+<meta property="og:url" content="https://www.gamanzen.cl/">
+<meta property="og:image" content="https://www.gamanzen.cl/assets/logo.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Terapia para el trauma y la resiliencia | GamanZen">
+<meta name="twitter:description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado.">
+<meta name="twitter:image" content="https://www.gamanzen.cl/assets/logo.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/logo.png" fetchpriority="high">
+
+<!-- Datos estructurados Schema.org: ayuda a Google a mostrar GamanZen como
+     negocio de salud (nombre, contacto, especialidades) en resultados enriquecidos -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "GamanZen",
+  "alternateName": "Centro de Salud Integral para la Resiliencia SpA",
+  "description": "Centro de salud para la resiliencia: acompañamiento clínico integral para el trauma y el bienestar emocional, con terapia online y encuentros presenciales en la naturaleza.",
+  "url": "https://www.gamanzen.cl/",
+  "logo": "https://www.gamanzen.cl/assets/logo.png",
+  "image": "https://www.gamanzen.cl/assets/logo.png",
+  "telephone": "+56991728186",
+  "email": "contacto@gamanzen.cl",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Chile"
+  },
+  "knowsAbout": [
+    "Trauma psicológico",
+    "Psicoterapia EMDR",
+    "Terapia sistémica",
+    "Terapia ocupacional",
+    "Arteterapia",
+    "Yoga sensible al trauma",
+    "Salud mental",
+    "Resiliencia"
+  ],
+  "medicalSpecialty": ["Psychiatric"]
+}
+</script>
 <style>
 
   /* ============ TOKENS ============ */
@@ -123,9 +172,17 @@
   /* ============ HEADER ============ */
   header.site{
     position:sticky; top:0; z-index:100;
+    border-bottom:1px solid var(--line);
+  }
+  /* El desenfoque vive en una capa aparte (::before) en vez de ir directo en
+     header.site: un backdrop-filter en el header hace que los hijos con
+     position:fixed (el menú móvil) se posicionen relativos al header en vez
+     de a toda la pantalla, y el panel del menú se ve mal / se encoge. */
+  header.site::before{
+    content:"";
+    position:absolute; inset:0; z-index:-1;
     background:rgba(253,251,247,.92);
     backdrop-filter:saturate(150%) blur(6px);
-    border-bottom:1px solid var(--line);
   }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
@@ -279,11 +336,39 @@
   }
 
   .equipo-note{
-    margin-top:56px; padding:28px 32px; background:var(--mint-bg); border-radius:var(--radius);
+    margin-top:40px; padding:28px 32px; background:var(--mint-bg); border-radius:var(--radius);
     display:flex; gap:18px; align-items:flex-start;
   }
   .equipo-note svg{width:24px; height:24px; flex:none; color:var(--leaf-deep); margin-top:2px;}
   .equipo-note p{margin-bottom:0; color:var(--ink-soft);}
+
+  /* ---- Equipo profesional ---- */
+  .team-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px;}
+  @media (max-width:900px){ .team-grid{grid-template-columns:1fr;} }
+
+  .team-card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px 28px; display:flex; flex-direction:column;}
+  .team-photo{
+    width:92px; height:92px; border-radius:50%; border:1.5px dashed rgba(61,71,71,.35);
+    background:var(--bg-alt); color:var(--ink-soft);
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:3px;
+    margin-bottom:18px;
+  }
+  .team-photo svg{width:32px; height:32px;}
+  .team-photo span{font-size:.58rem; text-align:center; padding:0 6px; line-height:1.2; letter-spacing:.01em;}
+
+  .team-card h3{font-size:1.08rem; margin-bottom:2px;}
+  .team-role{font-weight:600; color:var(--teal-deep); font-size:.9rem; margin-bottom:2px;}
+  .team-spec{color:var(--ink-soft); font-size:.83rem; font-style:italic; margin-bottom:14px;}
+  .team-bio{color:var(--ink-soft); font-size:.9rem;}
+
+  .team-detail .tag{
+    display:block; font-size:.7rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--teal-deep); margin:14px 0 6px 0;
+  }
+  .team-detail .tag:first-child{margin-top:0;}
+  .team-detail ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:.87rem;}
+  .team-detail li{margin-bottom:4px;}
+  .team-detail p{color:var(--ink-soft); font-size:.87rem; margin-bottom:0;}
 
   /* ============ ESPECIALIDADES ============ */
   .esp-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:40px;}
@@ -303,12 +388,86 @@
   .callout svg{width:24px; height:24px; flex:none; color:var(--gold); margin-top:2px;}
   .callout p{margin-bottom:0; color:var(--ink-soft); font-size:.92rem;}
 
+  /* ============ PLANES PERSONALES ============ */
+  #planes{background:var(--bg-alt);}
+  .planes-track{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:20px;}
+  @media (max-width:900px){ .planes-track{grid-template-columns:1fr;} }
+
+  .plan-card{
+    position:relative; background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:34px 28px 28px 28px; display:flex; flex-direction:column;
+  }
+  .plan-card:not(:last-child)::after{
+    content:"→"; position:absolute; top:44px; right:-25px; font-size:1.2rem;
+    color:var(--line); font-family:var(--font-head);
+  }
+  @media (max-width:900px){ .plan-card:not(:last-child)::after{display:none;} }
+
+  .plan-num{
+    position:absolute; top:-14px; left:28px; width:30px; height:30px; border-radius:50%; color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:var(--font-head); font-weight:700; font-size:.88rem;
+  }
+  .plan-card .icon-wrap{
+    width:48px; height:48px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-bottom:18px;
+  }
+  .plan-card svg{width:24px; height:24px;}
+  .plan-1 .plan-num{background:var(--teal);} .plan-1 .icon-wrap{background:rgba(91,117,112,.14); color:var(--teal-deep);}
+  .plan-2 .plan-num{background:var(--leaf-deep);} .plan-2 .icon-wrap{background:rgba(48,116,50,.14); color:var(--leaf-deep);}
+  .plan-3 .plan-num{background:var(--olive-dark);} .plan-3 .icon-wrap{background:rgba(113,133,0,.16); color:var(--olive-dark);}
+
+  .plan-card .tag{
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--teal-deep); margin-bottom:8px;
+  }
+  .plan-card h3{font-size:1.2rem; margin-bottom:2px;}
+  .plan-card h3 .plan-sub{display:block; font-family:var(--font-body); font-weight:500; font-size:.78rem; color:var(--ink-soft); margin-top:3px; text-transform:none; letter-spacing:0;}
+  .plan-card .plan-lede{font-weight:600; color:var(--ink); font-size:.92rem; margin-bottom:10px;}
+  .plan-card p{color:var(--ink-soft); font-size:.92rem;}
+  .plan-target{font-size:.85rem; color:var(--ink-soft); margin-top:auto; padding-top:16px; border-top:1px solid var(--line);}
+  .plan-target strong{color:var(--ink);}
+
+  details.mini-acc{border-top:1px solid var(--line); padding-top:14px; margin:14px 0;}
+  details.mini-acc summary{
+    cursor:pointer; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:10px;
+    font-weight:600; font-size:.86rem; color:var(--teal-deep);
+  }
+  details.mini-acc summary::-webkit-details-marker{display:none;}
+  details.mini-acc summary .chev{width:16px; height:16px; flex:none; transition:transform .2s ease;}
+  details.mini-acc[open] summary .chev{transform:rotate(180deg);}
+  details.mini-acc ul{margin:10px 0 0 0; padding-left:18px; color:var(--ink-soft); font-size:.88rem;}
+  details.mini-acc li{margin-bottom:6px;}
+
+  .nagomi-card{
+    display:grid; grid-template-columns:.4fr 1.6fr; gap:36px; align-items:center;
+    background:var(--mint-bg); border:1px solid rgba(48,116,50,.18); padding:40px; border-radius:var(--radius);
+    margin-bottom:40px;
+  }
+  @media (max-width:760px){ .nagomi-card{grid-template-columns:1fr; padding:30px 26px;} }
+  .nagomi-card .icon-col{display:flex; align-items:center; justify-content:center;}
+  .nagomi-card .icon-col .circle{
+    width:104px; height:104px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 1px rgba(48,116,50,.18);
+  }
+  .nagomi-card .icon-col svg{width:46px; height:46px; color:var(--leaf-deep);}
+  .nagomi-card .tag{
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--leaf-deep); margin-bottom:8px;
+  }
+  .nagomi-card h3{margin-bottom:2px;}
+  .nagomi-card .nagomi-sub{font-weight:600; color:var(--leaf-deep); margin-bottom:12px; font-size:.95rem;}
+  .nagomi-card p{color:var(--ink-soft);}
+  .nagomi-card details.mini-acc{max-width:70ch;}
+  .plan-disclaimer{font-size:.8rem; font-style:italic; color:var(--ink-soft); opacity:.85; margin-top:12px; margin-bottom:0;}
+
+  .planes-cta{text-align:center; margin-top:8px;}
+  .planes-cta p{margin:0 auto 20px auto; color:var(--ink-soft);}
+
   /* ============ PROGRAMAS ============ */
   #programas{background:var(--mint-bg);}
   .prog-intro{display:grid; grid-template-columns:1.2fr .8fr; gap:40px; margin-bottom:48px; align-items:start;}
   @media (max-width:800px){ .prog-intro{grid-template-columns:1fr;} }
   .prog-intro .side{background:#fff; border-radius:var(--radius); padding:26px 28px; border:1px solid rgba(48,116,50,.18);}
-  .prog-intro .side h4{font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; color:var(--leaf-deep); font-family:var(--font-body); font-weight:700; margin-bottom:10px;}
+  .prog-intro .side h3{font-size:.82rem; text-transform:uppercase; letter-spacing:.06em; color:var(--leaf-deep); font-family:var(--font-body); font-weight:700; margin-bottom:10px;}
   .prog-intro .side ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:.92rem;}
   .prog-intro .side li{margin-bottom:6px;}
 
@@ -391,7 +550,7 @@
   .footer-brand .name{font-family:var(--font-head); font-weight:800; font-size:1.05rem;}
   .footer-brand .name span{display:block; font-family:var(--font-body); font-weight:400; font-size:.72rem; color:var(--mint); margin-top:2px;}
   footer p.desc{color:rgba(248,240,232,.75); font-size:.88rem; max-width:32ch;}
-  footer h5{font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--mint); margin-bottom:16px; font-family:var(--font-body); font-weight:700;}
+  footer h3{font-size:.78rem; text-transform:uppercase; letter-spacing:.06em; color:var(--mint); margin-bottom:16px; font-family:var(--font-body); font-weight:700;}
   footer ul{list-style:none; margin:0; padding:0;}
   footer li{margin-bottom:10px;}
   footer a{text-decoration:none; color:rgba(248,240,232,.85); font-size:.92rem;}
@@ -416,13 +575,14 @@
 <header class="site">
   <div class="wrap nav">
     <a href="#inicio" class="brand">
-      <img src="assets/logo.png" alt="Logo GamanZen">
+      <img src="assets/logo.png" alt="Logo GamanZen" width="46" height="46">
       <span class="brand-word"><b class="gaman">GAMAN</b>-<b class="zen">ZEN</b><span>Centro de salud para la resiliencia</span></span>
     </a>
     <nav class="links" id="navLinks">
       <a href="#inicio">Inicio</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#especialidades">Especialidades</a>
+      <a href="#planes">Planes personales</a>
       <a href="#programas">Programas</a>
       <a href="#contacto">Contacto</a>
       <a href="#contacto" class="btn btn-teal mobile-cta">Reserva tu hora</a>
@@ -435,6 +595,8 @@
     </div>
   </div>
 </header>
+
+<main>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="inicio">
@@ -458,7 +620,7 @@
       </div>
       <div class="hero-art anim-in d3">
         <div class="ring"></div>
-        <img src="assets/logo.png" alt="Ilustración de un ave posada en una rama, isotipo GamanZen">
+        <img src="assets/logo.png" alt="Ilustración de un ave posada en una rama, isotipo GamanZen" width="380" height="380" fetchpriority="high">
       </div>
     </div>
   </div>
@@ -590,9 +752,112 @@
       </details>
     </div>
 
+    <div class="section-head" style="margin-top:64px;">
+      <h2 style="font-size:1.5rem;">Nuestro equipo</h2>
+      <p>Profesionales acreditados, con formación especializada en trauma y salud mental.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+          <span>Fotografía próximamente</span>
+        </div>
+        <h3>Camila Martínez Ahumada</h3>
+        <p class="team-role">Psicóloga clínica</p>
+        <p class="team-spec">Trauma, psicoterapia EMDR y terapia sistémica</p>
+        <p class="team-bio">Psicóloga con más de dos décadas de trayectoria clínica, psicosocial y forense, trabajando con adultos, adolescentes, niños y familias. Se ha desempeñado además como perito forense en la Policía de Investigaciones de Chile.</p>
+        <details class="mini-acc">
+          <summary>Formación y trayectoria <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="team-detail">
+            <span class="tag">Formación</span>
+            <ul>
+              <li>Psicóloga y Licenciada en Psicología, Universidad Nacional Andrés Bello</li>
+              <li>Postítulo en Terapia Sistémica para Niños y Adolescentes, Pontificia Universidad Católica de Chile (2003–2004)</li>
+              <li>Diplomado en Psiquiatría y Psicología Forense en la Reforma Procesal Penal, Universidad de Chile (2005–2006)</li>
+              <li>Entrenamiento Básico en Psicoterapia EMDR, Partes I y II, EMDR Chile (2020–2021)</li>
+            </ul>
+            <span class="tag">Áreas de especialización</span>
+            <ul>
+              <li>Trauma y experiencias adversas, trauma complejo e infancia</li>
+              <li>Psicoterapia EMDR y regulación emocional</li>
+              <li>Maltrato y abuso sexual infantil, violencia de género</li>
+              <li>Intervención en crisis y atención a víctimas</li>
+            </ul>
+            <span class="tag">Enfoque de trabajo</span>
+            <p>Trabaja desde una mirada integrativa, incorporando herramientas de psicoterapia EMDR y terapia sistémica, poniendo especial atención en el procesamiento de experiencias traumáticas y el fortalecimiento de recursos personales.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+          <span>Fotografía próximamente</span>
+        </div>
+        <h3>Marcela Díaz Pérez</h3>
+        <p class="team-role">Terapeuta ocupacional</p>
+        <p class="team-spec">Psiquiatría y salud mental</p>
+        <p class="team-bio">Más de 25 años de trayectoria como terapeuta ocupacional en el Hospital Clínico de la Universidad de Chile, acompañando a personas con afecciones de salud mental de alta complejidad.</p>
+        <details class="mini-acc">
+          <summary>Formación y trayectoria <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="team-detail">
+            <span class="tag">Formación</span>
+            <ul>
+              <li>Terapeuta ocupacional, Universidad de Chile</li>
+              <li>Diplomado en Terapia Conductual Dialéctica, Universidad de Chile</li>
+              <li>Diplomado en Mindfulness, Instituto Mindfulness</li>
+              <li>Somatic Experiencing® — Three-Year Professional Training, Somatic Experiencing® International</li>
+              <li>Acompañamiento Contemplativo en la Muerte, Nirakara</li>
+            </ul>
+            <span class="tag">Áreas de especialización</span>
+            <ul>
+              <li>Trauma</li>
+              <li>Estrés y ansiedad</li>
+              <li>Regulación emocional</li>
+              <li>Adicciones</li>
+            </ul>
+            <span class="tag">Enfoque de trabajo</span>
+            <p>Integra la regulación emocional mediante recursos de Terapia Dialéctico-Conductual (DBT) con un enfoque corporal a través de Somatic Experiencing®, ofreciendo una mirada clínica humana, presente y cercana.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+          <span>Fotografía próximamente</span>
+        </div>
+        <h3>María Jesús González Martínez</h3>
+        <p class="team-role">Arteterapeuta</p>
+        <p class="team-spec">Arteterapia y Yoga Sensible al Trauma (TCTSY)</p>
+        <p class="team-bio">Licenciada en Artes Visuales y arteterapeuta, con más de 13 años acompañando a personas y grupos en contextos clínicos, comunitarios y de salud mental, integrando arteterapia, cuerpo y procesos creativos.</p>
+        <details class="mini-acc">
+          <summary>Formación y trayectoria <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="team-detail">
+            <span class="tag">Formación</span>
+            <ul>
+              <li>Licenciatura en Artes Visuales, mención Pintura y Textil — Universidad de Chile (2006–2010)</li>
+              <li>Postítulo en Terapias de Arte, mención Arteterapia — Universidad de Chile (2012–2014)</li>
+              <li>Certificación en Trauma Center Trauma-Sensitive Yoga (TCTSY), 300 horas — Justice Resource Institute's Center for Trauma and Embodiment, EE.UU. (2026)</li>
+              <li>Profesorado de Yoga, 200 horas YTT — Yogacampus London, Reino Unido (2019–2020)</li>
+            </ul>
+            <span class="tag">Áreas de especialización</span>
+            <ul>
+              <li>Arteterapia y procesos creativos en salud mental</li>
+              <li>Yoga Sensible al Trauma (TCTSY), regulación emocional y reconexión corporal</li>
+              <li>Trabajo grupal y comunitario con niñeces, adolescencia y personas adultas</li>
+              <li>Acompañamiento en contextos de vulnerabilidad, violencia de género y procesos oncológicos</li>
+            </ul>
+            <span class="tag">Enfoque de trabajo</span>
+            <p>Integra el cuerpo y la creatividad como vías de exploración, expresión y regulación emocional, priorizando la seguridad, la autonomía y el respeto por los ritmos individuales de cada persona.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
     <div class="equipo-note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/><path d="M9 12l2 2 4-4"/></svg>
-      <p>Nuestro equipo de psicólogos, psiquiatras y terapeutas ocupacionales cuenta con acreditación vigente ante la Superintendencia de Salud de Chile. Muy pronto publicaremos aquí las fichas y acreditaciones de cada profesional.</p>
+      <p>Todo nuestro equipo cuenta con acreditación vigente ante la Superintendencia de Salud de Chile.</p>
     </div>
   </div>
 </section>
@@ -642,6 +907,121 @@
   </div>
 </section>
 
+<!-- ============ PLANES PERSONALES ============ -->
+<section id="planes">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow"><span class="dot"></span> Planes para personas</span>
+      <h2>Un camino de acompañamiento, paso a paso</h2>
+      <p>Programas terapéuticos estructurados según la etapa del proceso de cada persona: desde la estabilización inicial hasta la plena reintegración a la vida.</p>
+    </div>
+
+    <div class="planes-track">
+      <div class="plan-card plan-1">
+        <div class="plan-num">1</div>
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <span class="tag">Estabilización</span>
+        <h3>Sangha<span class="plan-sub">Espacio de apoyo mutuo</span></h3>
+        <p class="plan-lede">Estabilización, seguridad y contención en momentos de alta intensidad emocional.</p>
+        <p>Dirigido a personas con síntomas emocionales y físicos de alta intensidad que aún no cuentan con las condiciones para abordar directamente sus experiencias traumáticas. El foco no es exponer el trauma, sino disminuir la sintomatología aguda, recuperar la sensación de seguridad y desarrollar recursos para afrontar las crisis, respetando el ritmo y los límites de cada persona.</p>
+        <details class="mini-acc">
+          <summary>Objetivos del programa <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <ul>
+            <li>Psicoeducación para el paciente y su entorno</li>
+            <li>Disminuir la intensidad de los síntomas</li>
+            <li>Entregar herramientas para afrontar momentos de crisis</li>
+            <li>Entregar herramientas para manejar la disociación</li>
+            <li>Favorecer la regulación emocional</li>
+            <li>Fortalecer la sensación de seguridad y control</li>
+            <li>Preparar a la persona para una futura etapa de tratamiento del trauma</li>
+          </ul>
+        </details>
+        <p class="plan-target"><strong>Dirigido a:</strong> personas que experimentan desregulación emocional intensa, sintomatología disociativa y dificultades para conectarse de manera segura con sus emociones y sensaciones corporales.</p>
+      </div>
+
+      <div class="plan-card plan-2">
+        <div class="plan-num">2</div>
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22V12M12 12C9 12 6 9.5 6 5c3.5 0 6 2 6 5m0 2c3 0 6-2.5 6-7-3.5 0-6 2-6 5"/></svg>
+        </div>
+        <span class="tag">Procesamiento</span>
+        <h3>Tathatā<span class="plan-sub">La naturaleza misma de las cosas</span></h3>
+        <p class="plan-lede">Tratamiento de la sintomatología post traumática, reprocesamiento y resignificación del trauma.</p>
+        <p>Programa especializado en el estrés postraumático y el estrés postraumático complejo, orientado a comprender y transformar las adaptaciones neurobiológicas que dejan las experiencias traumáticas prolongadas o repetidas. A través de un proceso gradual, respetuoso y compasivo, ayuda a construir nuevas formas de relacionarse con las emociones, el cuerpo, la historia personal y los demás.</p>
+        <details class="mini-acc">
+          <summary>Objetivos del programa <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <ul>
+            <li>Comprender los efectos del trauma en la vida cotidiana</li>
+            <li>Reconocer patrones emocionales y relacionales asociados</li>
+            <li>Fortalecer la regulación emocional</li>
+            <li>Reprocesar y resignificar gradualmente las experiencias traumáticas</li>
+            <li>Construir una relación más segura con uno mismo y con los demás</li>
+          </ul>
+        </details>
+        <p class="plan-target"><strong>Dirigido a:</strong> personas con síntomas post traumáticos derivados de trauma complejo.</p>
+      </div>
+
+      <div class="plan-card plan-3">
+        <div class="plan-num">3</div>
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 18h18M5 18a7 7 0 0114 0M12 6v3M5.5 9.5l1.8 1.8M18.5 9.5l-1.8 1.8"/></svg>
+        </div>
+        <span class="tag">Integración</span>
+        <h3>Pāramitā<span class="plan-sub">El que ha llegado a la otra orilla</span></h3>
+        <p class="plan-lede">Integrar lo vivido y volver a participar plenamente en la vida.</p>
+        <p>Acompaña a personas con estrés postraumático complejo que han avanzado en su proceso terapéutico y necesitan fortalecer su integración a la vida personal, familiar y social. Sostiene la transición desde el tratamiento del trauma hacia la recuperación de proyectos, relaciones, roles y actividades significativas, construyendo una identidad que no quede definida únicamente por la experiencia traumática.</p>
+        <details class="mini-acc">
+          <summary>Objetivos del programa <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <ul>
+            <li>Integrar la experiencia traumática a la historia personal</li>
+            <li>Fortalecer la identidad y la autonomía</li>
+            <li>Recuperar vínculos familiares y sociales</li>
+            <li>Retomar actividades, proyectos y roles significativos</li>
+            <li>Favorecer una participación más plena en la vida cotidiana</li>
+          </ul>
+        </details>
+        <p class="plan-target"><strong>Dirigido a:</strong> personas que, tras avanzar en el tratamiento del trauma, desean fortalecer su autonomía y su reintegración familiar, social, académica o laboral.</p>
+      </div>
+    </div>
+
+    <div class="nagomi-card">
+      <div class="icon-col">
+        <div class="circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2.6"/><path d="M12 2a3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3 3 3 0 013-3zM12 16a3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3 3 3 0 013-3zM2 12a3 3 0 013-3 3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3zM16 12a3 3 0 013-3 3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3z"/></svg>
+        </div>
+      </div>
+      <div>
+        <span class="tag">Programa preventivo</span>
+        <h3>Nagomi</h3>
+        <p class="nagomi-sub">Bienestar y equilibrio durante la transición menopáusica</p>
+        <p>Programa psicoeducativo, preventivo y experiencial para mujeres que atraviesan la transición hacia la menopausia. Un espacio grupal para comprender los cambios físicos, emocionales y personales de esta etapa, compartir experiencias en un ambiente respetuoso y desarrollar recursos prácticos para el autocuidado, desde la participación voluntaria, la confidencialidad y la escucha sin juicio.</p>
+        <details class="mini-acc">
+          <summary>Objetivos del programa <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <ul>
+            <li>Comprender los cambios asociados a la transición menopáusica</li>
+            <li>Favorecer la escucha personal y el autocuidado</li>
+            <li>Compartir experiencias en un entorno seguro y confidencial</li>
+            <li>Incorporar herramientas prácticas para el bienestar cotidiano</li>
+            <li>Construir una nueva relación con esta etapa vital</li>
+          </ul>
+        </details>
+        <p class="plan-target"><strong>Dirigido a:</strong> mujeres que se encuentran transitando hacia la menopausia y buscan comprensión, acompañamiento y recursos para vivir esta etapa con mayor bienestar.</p>
+        <p class="plan-disclaimer">Este programa no reemplaza la evaluación ni el tratamiento individual de profesionales médicos, psicológicos, psiquiátricos, nutricionales o sexológicos.</p>
+      </div>
+    </div>
+
+    <div class="planes-cta">
+      <p>¿No sabes cuál es el plan indicado para ti?</p>
+      <a href="#contacto" class="btn btn-teal">
+        Conversemos sobre tu proceso
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PROGRAMAS ============ -->
 <section id="programas">
   <div class="wrap">
@@ -654,7 +1034,7 @@
     <div class="prog-intro">
       <p style="color:var(--ink-soft); font-size:1.02rem;">Estos programas se complementan con nuestras salidas de terapia ocupacional en la naturaleza —trekking, yoga y jardinería terapéutica— pensadas para fortalecer la resiliencia desde el cuerpo, el vínculo y el entorno natural.</p>
       <div class="side">
-        <h4>Cómo funcionan</h4>
+        <h3>Cómo funcionan</h3>
         <ul>
           <li>4 sesiones teórico-prácticas y participativas</li>
           <li>Modalidad flexible: individual o grupal</li>
@@ -762,6 +1142,7 @@
             <select id="motivo" name="motivo">
               <option>Consulta online (psicología / psiquiatría)</option>
               <option>Terapias complementarias</option>
+              <option>Planes personales (Sangha / Tathatā / Pāramitā / Nagomi)</option>
               <option>Programa corporativo para mi equipo</option>
               <option>Salida presencial en la naturaleza</option>
               <option>Otro</option>
@@ -813,29 +1194,32 @@
   </div>
 </section>
 
+</main>
+
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="wrap">
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="assets/logo.png" alt="Logo GamanZen">
+          <img src="assets/logo.png" alt="Logo GamanZen" width="44" height="44" loading="lazy">
           <div class="name">GAMAN-ZEN<span>Centro de Salud Integral para la Resiliencia SpA</span></div>
         </div>
         <p class="desc">Bienestar con respaldo clínico. Acompañamiento integral para el trauma y la salud emocional.</p>
       </div>
       <div>
-        <h5>Sitio</h5>
+        <h3>Sitio</h3>
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#especialidades">Especialidades</a></li>
+          <li><a href="#planes">Planes personales</a></li>
           <li><a href="#programas">Programas</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
       <div>
-        <h5>Contacto</h5>
+        <h3>Contacto</h3>
         <ul>
           <li><a href="mailto:contacto@gamanzen.cl">contacto@gamanzen.cl</a></li>
           <li><a href="tel:+56991728186">+56 9 9172 8186</a></li>
@@ -843,7 +1227,7 @@
         </ul>
       </div>
       <div>
-        <h5>Síguenos</h5>
+        <h3>Síguenos</h3>
         <div class="social-row">
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.1 1.4-2.1 2.9V21h-4z"/></svg></a>
           <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a3 3 0 00-2.1-2.1C17.9 5 12 5 12 5s-5.9 0-7.5.2A3 3 0 002.4 7.3C2 8.8 2 12 2 12s0 3.2.4 4.7a3 3 0 002.1 2.1C6.1 19 12 19 12 19s5.9 0 7.5-.2a3 3 0 002.1-2.1c.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5z"/></svg></a>
