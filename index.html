@@ -186,8 +186,14 @@
   section{padding:88px 0;}
   @media (max-width:720px){ section{padding:60px 0;} }
 
-  .section-head{max-width:660px; margin-bottom:48px;}
-  .section-head p{color:var(--ink-soft);}
+  .section-head{max-width:100%; margin-bottom:48px;}
+  .section-head p{color:var(--ink-soft); max-width:100%;}
+  .section-head h2{
+    max-width:100%;
+    font-size:clamp(3rem, 5vw, 5rem);
+    line-height:0.93;
+    letter-spacing:-.06em;
+  }
 
   /* ============ HEADER ============ */
   header.site{
