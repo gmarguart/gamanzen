@@ -335,6 +335,22 @@
   .equipo-note p{margin-bottom:0; color:var(--ink-soft);}
 
   /* ---- Equipo profesional ---- */
+  .team-banner{
+    position:relative; overflow:hidden; border-radius:calc(var(--radius) + 8px);
+    padding:34px 32px; margin-top:64px; border:1px solid rgba(61,71,71,.12);
+    background:rgba(255,255,255,.72); backdrop-filter:saturate(120%) blur(1px);
+  }
+  .team-banner::before{
+    content:""; position:absolute; inset:0; z-index:0;
+    background:linear-gradient(rgba(247,249,244,.72), rgba(247,249,244,.9)),
+      url("assets/Equipo 2.JPG") center 30% / cover no-repeat;
+    filter:blur(3px) saturate(.9);
+    transform:scale(1.08);
+  }
+  .team-banner > *{position:relative; z-index:1;}
+  .team-banner .section-head{max-width:100%; margin-bottom:0;}
+  .team-banner .section-head p{color:var(--ink-soft);}
+
   .team-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px;}
   @media (max-width:900px){ .team-grid{grid-template-columns:1fr;} }
 
@@ -754,10 +770,12 @@ En otras palabras es la fuerza serena de quien atraviesa la tormenta conservando
     </div>
     -->
 
-    <div class="section-head" style="margin-top:64px;">
-      <h2 style="font-size:1.5rem;">Nuestro equipo</h2>
-      <p>Somos un grupo de profesionales que nos conocemos ya hace mucho tiempo. decidimos reunirnos tras la experiencia de atender muchos pacientes en modalidades de co-terapia con excelentes resultados. Todos hemos trabajado en instituciones públicas, universitarias y de salud privada, por lo que hemos visto los distintos tipos de perfiles de pacientes y los muchos tipos de atención, es así que pensamos un modelo que pudiera tomar todo lo necesario para mejorar la calidad de nuestros servicios y que resultara verdaderamente útil para nuestros pacientes. Valoramos el trabajo multidisciplinario, coordinado y sistemático. Vemos a nuestros pacientes de manera más simétrica que la atención médica habitual, creemos que son el mayor aporte a su propia mejoría, poniéndonos nosotros como facilitadores del cambio, no como lo poseedores de la verdad absoluta.
+    <div class="team-banner">
+      <div class="section-head">
+        <h2 style="font-size:1.5rem;">Nuestro equipo</h2>
+        <p>Somos un grupo de profesionales que nos conocemos ya hace mucho tiempo. decidimos reunirnos tras la experiencia de atender muchos pacientes en modalidades de co-terapia con excelentes resultados. Todos hemos trabajado en instituciones públicas, universitarias y de salud privada, por lo que hemos visto los distintos tipos de perfiles de pacientes y los muchos tipos de atención, es así que pensamos un modelo que pudiera tomar todo lo necesario para mejorar la calidad de nuestros servicios y que resultara verdaderamente útil para nuestros pacientes. Valoramos el trabajo multidisciplinario, coordinado y sistemático. Vemos a nuestros pacientes de manera más simétrica que la atención médica habitual, creemos que son el mayor aporte a su propia mejoría, poniéndonos nosotros como facilitadores del cambio, no como lo poseedores de la verdad absoluta.
 Todos somo profesionales acreditados, con formación especializada en trauma y salud mental.</p>
+      </div>
     </div>
     <div class="team-grid">
       <div class="team-card">
