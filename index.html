@@ -339,21 +339,21 @@
 
   .gaman-block{
     display:grid; grid-template-columns:.55fr 1.45fr; gap:48px; align-items:center;
-    background:var(--olive-dark); color:#F8F0E8; padding:56px; border-radius:var(--radius);
+    background:#BFDBB2; color:var(--ink); padding:56px; border-radius:var(--radius);
     margin-bottom:64px;
   }
   @media (max-width:760px){ .gaman-block{grid-template-columns:1fr; padding:36px 28px;} }
   .gaman-kanji{
     font-size:6.5rem; line-height:1; text-align:center; font-family:var(--font-head); font-weight:300;
-    color:var(--gold); opacity:.92;
+    color:var(--olive-dark); opacity:.92;
   }
-  .gaman-block h3{color:#fff; font-size:1rem; text-transform:uppercase; letter-spacing:.08em; font-family:var(--font-body); margin-bottom:16px;}
+  .gaman-block h3{color:var(--ink); font-size:1rem; text-transform:uppercase; letter-spacing:.08em; font-family:var(--font-body); margin-bottom:16px;}
   .gaman-block blockquote{
     margin:0 0 20px 0; font-family:var(--font-head); font-weight:500; font-size:1.25rem; line-height:1.45;
-    border-left:2px solid var(--gold); padding-left:20px;
+    border-left:2px solid var(--olive-dark); padding-left:20px;
   }
-  .gaman-block blockquote cite{display:block; margin-top:10px; font-family:var(--font-body); font-style:normal; font-weight:500; font-size:.85rem; color:var(--mint);}
-  .gaman-block p.def{color:rgba(248,240,232,.85); margin-bottom:0;}
+  .gaman-block blockquote cite{display:block; margin-top:10px; font-family:var(--font-body); font-style:normal; font-weight:500; font-size:.85rem; color:var(--teal-deep);}
+  .gaman-block p.def{color:var(--ink-soft); margin-bottom:0;}
 
   .pilares{border-top:1px solid var(--line);}
   details.pilar{border-bottom:1px solid var(--line);}
@@ -444,7 +444,7 @@
   .callout svg{width:24px; height:24px; flex:none; color:var(--gold); margin-top:2px;}
   .callout p{margin-bottom:0; color:var(--ink-soft); font-size:.92rem;}
 
-  /* ============ PLANES PERSONALES ============ */
+  /* ============ PROGRAMAS PERSONALES ============ */
   #planes{background:var(--bg-alt);}
   .planes-track{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:20px;}
   @media (max-width:900px){ .planes-track{grid-template-columns:1fr;} }
@@ -470,6 +470,7 @@
   .plan-1 .plan-num{background:var(--teal);} .plan-1 .icon-wrap{background:rgba(91,117,112,.14); color:var(--teal-deep);}
   .plan-2 .plan-num{background:var(--leaf-deep);} .plan-2 .icon-wrap{background:rgba(48,116,50,.14); color:var(--leaf-deep);}
   .plan-3 .plan-num{background:var(--olive-dark);} .plan-3 .icon-wrap{background:rgba(113,133,0,.16); color:var(--olive-dark);}
+  .plan-4 .plan-num{background:var(--teal);} .plan-4 .icon-wrap{background:rgba(91,117,112,.14); color:var(--teal-deep);}
 
   .plan-card .tag{
     display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
@@ -642,8 +643,8 @@
       <a href="#inicio">Inicio</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#especialidades">Servicios</a>
-      <a href="#planes">Planes personales</a>
-      <a href="#programas">Programas</a>
+      <a href="#planes">Programas personales</a>
+      <a href="#programas">Programas corporativos</a>
       <a href="#contacto">Contacto</a>
       <a href="#contacto" class="btn btn-teal mobile-cta">Reserva tu hora</a>
     </nav>
@@ -1044,11 +1045,11 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
   </div>
 </section>
 
-<!-- ============ PLANES PERSONALES ============ -->
+<!-- ============ PROGRAMAS PERSONALES ============ -->
 <section id="planes">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow"><span class="dot"></span> Planes para personas</span>
+      <span class="eyebrow"><span class="dot"></span> Programas para Personas</span>
       <h2>Un camino de acompañamiento, paso a paso</h2>
       <p>Programas terapéuticos estructurados según la etapa del proceso de cada persona: desde la estabilización inicial hasta la plena reintegración a la vida.</p>
     </div>
@@ -1120,6 +1121,37 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
           </ul>
         </details>
         <p class="plan-target"><strong>Dirigido a:</strong> personas que, tras avanzar en el tratamiento del trauma, desean fortalecer su autonomía y su reintegración familiar, social, académica o laboral.</p>
+      </div>
+
+      <div class="plan-card plan-4">
+        <div class="plan-num">4</div>
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.4-7-10.2A4.8 4.8 0 0112 7a4.8 4.8 0 017 3.8C19 16.6 12 21 12 21z"/><path d="M12 7V3M9 4l3-1 3 1"/></svg>
+        </div>
+        <span class="tag">Cuidado de quienes cuidan</span>
+        <h3>Satori 悟り<span class="plan-sub">Cuando la gota de lluvia recuerda que es océano</span></h3>
+        <p class="plan-lede">¿Cómo se cuidan los que cuidan?</p>
+        <p>Programa dirigido a profesionales de la salud, cuyo propósito es promover el bienestar personal y profesional, fortaleciendo recursos que permitan ejercer el cuidado de otros sin descuidar el propio bienestar.</p>
+        <details class="mini-acc">
+          <summary>Objetivos del programa <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <ul>
+            <li>Autoconciencia</li>
+            <li>Autocuidado</li>
+            <li>Autovaloración</li>
+            <li>Cuidado mutuo</li>
+          </ul>
+        </details>
+        <details class="mini-acc">
+          <summary>Modalidad y metodología <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <ul>
+            <li>6 sesiones grupales online de 2 horas cada una.</li>
+            <li>Dos sábados al mes, de 10:00 a 12:00, durante 3 meses.</li>
+            <li>Séptima sesión presencial opcional: conexión con el cuerpo y la naturaleza, con movimiento corporal y baño de bosque.</li>
+            <li>Asistencia sincrónica a las sesiones y tareas simples entre sesiones.</li>
+            <li>Espacio de comunicación semana a semana para compartir reflexiones, artículos y videos de utilidad.</li>
+          </ul>
+        </details>
+        <p class="plan-target"><strong>Dirigido a:</strong> profesionales de la salud. El único requisito de ingreso es ejercer como profesional de la salud. Se sugiere no cursar un cuadro psiquiátrico mayor agudo, ya que estos encuentros grupales no permiten un abordaje completamente personalizado.</p>
       </div>
     </div>
 
@@ -1281,7 +1313,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
             <select id="motivo" name="motivo">
               <option>Consulta online (psicología / psiquiatría)</option>
               <option>Terapias complementarias</option>
-              <option>Planes personales (Sangha / Tathatā / Pāramitā / Nagomi)</option>
+              <option>Programas personales (Sangha / Tathatā / Pāramitā / Nagomi)</option>
               <option>Programa corporativo para mi equipo</option>
               <option>Salida presencial en la naturaleza</option>
               <option>Otro</option>
@@ -1359,8 +1391,8 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#especialidades">Servicios</a></li>
-          <li><a href="#planes">Planes personales</a></li>
-          <li><a href="#programas">Programas</a></li>
+              <li><a href="#planes">Programas personales</a></li>
+          <li><a href="#programas">Programas corporativos</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </div>
@@ -1376,7 +1408,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
         <div class="social-row">
           <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.83-3-1.83 0-2.1 1.4-2.1 2.9V21h-4z"/></svg></a>
           <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a3 3 0 00-2.1-2.1C17.9 5 12 5 12 5s-5.9 0-7.5.2A3 3 0 002.4 7.3C2 8.8 2 12 2 12s0 3.2.4 4.7a3 3 0 002.1 2.1C6.1 19 12 19 12 19s5.9 0 7.5-.2a3 3 0 002.1-2.1c.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5z"/></svg></a>
-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="https://www.instagram.com/gaman_zen/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
           <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.7c0-.9.3-1.6 1.6-1.6h1.7V3.2C16.5 3.1 15.4 3 14.2 3c-2.6 0-4.4 1.6-4.4 4.5v2.3H7v3.2h2.8V21z"/></svg></a>
         </div>
       </div>
