@@ -3,22 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GamaZen</title>
-<meta name="description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado. Agenda tu primera sesión con GamaZen.">
+<title>GamanZen</title>
+<meta name="description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado. Agenda tu primera sesión con GamanZen.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.gamanzen.cl/">
 <link rel="icon" type="image/png" href="assets/logo.png">
 
 <!-- Open Graph / redes sociales -->
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="GamaZen">
+<meta property="og:site_name" content="GamanZen">
 <meta property="og:locale" content="es_CL">
-<meta property="og:title" content="GamaZen">
-<meta property="og:description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado. Agenda tu primera sesión con GamaZen.">
+<meta property="og:title" content="GamanZen">
+<meta property="og:description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado. Agenda tu primera sesión con GamanZen.">
 <meta property="og:url" content="https://www.gamanzen.cl/">
 <meta property="og:image" content="https://www.gamanzen.cl/assets/logo.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="GamaZen">
+<meta name="twitter:title" content="GamanZen">
 <meta name="twitter:description" content="Terapia para el trauma con EMDR, psicología y psiquiatría online o presencial en Chile. Equipo acreditado.">
 <meta name="twitter:image" content="https://www.gamanzen.cl/assets/logo.png">
 
@@ -27,13 +27,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="assets/logo.png" fetchpriority="high">
 
-<!-- Datos estructurados Schema.org: ayuda a Google a mostrar GamaZen como
+<!-- Datos estructurados Schema.org: ayuda a Google a mostrar Gamanzen como
      negocio de salud (nombre, contacto, especialidades) en resultados enriquecidos -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MedicalBusiness",
-  "name": "GamaZen",
+  "name": "Gamanzen",
   "alternateName": "Centro de Salud Integral para la Resiliencia SpA",
   "description": "Centro de salud para la resiliencia: acompañamiento clínico integral para el trauma y el bienestar emocional, con terapia online y encuentros presenciales en la naturaleza.",
   "url": "https://www.gamanzen.cl/",
@@ -268,6 +268,7 @@
     font-size:clamp(3.1rem, 4.6vw, 5.6rem);
     letter-spacing:-.06em;
     line-height:0.95;
+    font-family:"Arial Rounded MT Bold", "Arial Rounded MT", "Trebuchet MS", sans-serif;
   }
   .hero h1 em{font-style:normal; color:var(--olive-dark);}
   .hero .lede{font-size:1.12rem; color:var(--ink-soft); margin-bottom:32px; max-width:100%;}
@@ -381,22 +382,25 @@
 
   /* ---- Equipo profesional ---- */
   .team-banner{
-    position:relative; overflow:hidden; border-radius:calc(var(--radius) + 8px);
-    padding:34px 32px; margin-top:64px; border:1px solid rgba(61,71,71,.12);
-    background:rgba(255,255,255,.72); backdrop-filter:saturate(120%) blur(1px);
+    position:relative; display:grid; grid-template-columns:1.2fr .8fr; gap:28px;
+    align-items:center; border-radius:calc(var(--radius) + 8px);
+    padding:28px 30px; margin-top:64px; border:1px solid rgba(61,71,71,.12);
+    background:rgba(255,255,255,.78); backdrop-filter:saturate(120%) blur(1px);
     --parallax-shift:0px;
   }
-  .team-banner::before{
-    content:""; position:absolute; inset:0; z-index:0;
-    background:linear-gradient(rgba(247,249,244,.72), rgba(247,249,244,.9)),
-      url("assets/Equipo 2.JPG") center 30% / cover no-repeat;
-    filter:blur(3px) saturate(.9);
-    transform:scale(1.08) translate3d(0, var(--parallax-shift), 0);
-    transition:transform .2s ease-out;
+  .team-banner-copy{position:relative; z-index:1;}
+  .team-banner-copy .section-head{max-width:100%; margin:0;}
+  .team-banner-copy .section-head p{color:var(--ink-soft); margin-bottom:0;}
+  .team-banner-visual{position:relative; z-index:1; display:flex; justify-content:center; align-items:center;}
+  .team-banner-visual img{
+    width:min(100%, 520px); height:auto; max-height:420px; object-fit:cover;
+    border-radius:calc(var(--radius) + 8px); border:1px solid rgba(61,71,71,.12);
+    box-shadow:0 18px 38px rgba(16,24,24,.08); display:block;
   }
-  .team-banner > *{position:relative; z-index:1;}
-  .team-banner .section-head{max-width:100%; margin-bottom:0;}
-  .team-banner .section-head p{color:var(--ink-soft);}
+  @media (max-width:900px){
+    .team-banner{grid-template-columns:1fr;}
+    .team-banner-visual img{max-height:320px;}
+  }
 
   .team-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:8px;}
   @media (max-width:900px){ .team-grid{grid-template-columns:1fr;} }
@@ -574,31 +578,32 @@
   .form-msg{font-size:.88rem; color:var(--leaf-deep); font-weight:600; display:none;}
   .form-msg.show{display:block;}
 
-  .contact-side{background:var(--olive-dark); color:#F8F0E8; padding:38px; border-radius:var(--radius);}
-  .contact-side h3{color:#fff; font-size:1rem; text-transform:uppercase; letter-spacing:.06em; font-family:var(--font-body); margin-bottom:22px;}
+  .contact-side{background:#BFDBB2; color:#1F2A1F; padding:38px; border-radius:var(--radius);}
+  .contact-side h3{color:#1F2A1F; font-size:1rem; text-transform:uppercase; letter-spacing:.06em; font-family:var(--font-body); margin-bottom:22px;}
   .contact-row{display:flex; gap:14px; align-items:flex-start; margin-bottom:20px;}
-  .contact-row svg{width:20px; height:20px; flex:none; margin-top:2px; color:var(--gold);}
-  .contact-row svg.whatsapp-icon{color:#25D366;}
-  .contact-row a, .contact-row span{color:#F8F0E8; text-decoration:none; font-size:.95rem;}
+  .contact-row svg{width:20px; height:20px; flex:none; margin-top:2px; color:#3F504C;}
+  .contact-row svg.whatsapp-icon{color:#1F8A4C;}
+  .contact-row a, .contact-row span{color:#1F2A1F; text-decoration:none; font-size:.95rem;}
   .contact-row a:hover{text-decoration:underline;}
   .map-ph{
     margin-top:8px; border-radius:var(--radius); height:150px; position:relative; overflow:hidden;
     background:
-      radial-gradient(circle at 30% 30%, rgba(249,161,1,.35), transparent 45%),
-      radial-gradient(circle at 75% 65%, rgba(250,71,2,.3), transparent 45%),
-      rgba(255,255,255,.08);
-    border:1px dashed rgba(255,255,255,.3);
+      radial-gradient(circle at 30% 30%, rgba(255,255,255,.45), transparent 45%),
+      radial-gradient(circle at 75% 65%, rgba(82,118,90,.22), transparent 45%),
+      rgba(255,255,255,.12);
+    border:1px dashed rgba(31,42,31,.25);
     display:flex; align-items:center; justify-content:center; flex-direction:column; gap:6px;
   }
-  .map-ph svg{width:26px; height:26px; color:var(--gold);}
-  .map-ph span{font-size:.78rem; color:rgba(248,240,232,.75);}
+  .map-ph svg{width:26px; height:26px; color:#3F504C;}
+  .map-ph span{font-size:.78rem; color:rgba(31,42,31,.72);}
 
   .crisis-bar{
-    margin-top:56px; background:#fff; border:1.5px solid var(--gold); border-radius:var(--radius);
+    width:100%; margin-top:56px; background:#fff; border:1.5px solid var(--gold); border-radius:var(--radius);
     padding:22px 28px; display:flex; gap:16px; align-items:flex-start;
+    box-sizing:border-box;
   }
   .crisis-bar svg{width:22px; height:22px; flex:none; color:var(--orange); margin-top:2px;}
-  .crisis-bar p{margin-bottom:0; font-size:.9rem; color:var(--ink-soft);}
+  .crisis-bar p{margin-bottom:0; font-size:.9rem; color:var(--ink-soft); flex:1 1 auto; max-width:none; width:100%;}
   .crisis-bar strong{color:var(--ink);}
 
   /* ============ FOOTER ============ */
@@ -636,8 +641,8 @@
 <header class="site">
   <div class="wrap nav">
     <a href="#inicio" class="brand">
-      <img src="assets/logo.png" alt="Logo GamaZen" width="46" height="46">
-      <span class="brand-word"><b class="gaman">Gama</b><b class="zen">Zen</b><span>Centro de salud para la resiliencia</span></span>
+      <img src="assets/logo.png" alt="Logo GamanZen" width="46" height="46">
+      <span class="brand-word"><b class="gaman">Gama</b><b class="zen">nZen</b><span>Centro de salud para la resiliencia</span></span>
     </a>
     <nav class="links" id="navLinks">
       <a href="#inicio">Inicio</a>
@@ -670,12 +675,12 @@
         </div>
         <div class="hero-art anim-in d3">
           <div class="ring"></div>
-          <img src="assets/logo.png" alt="Ilustración de un ave posada en una rama, isotipo GamaZen" width="380" height="380" fetchpriority="high">
+          <img src="assets/logo.png" alt="Ilustración de un ave posada en una rama, isotipo GamanZen" width="380" height="380" fetchpriority="high">
         </div>
       </div>
 
       <div class="hero-copy">
-        <p class="lede anim-in d3">En Gaman-Zen acompañamos en el camino de reparación a personas que enfrentan las consecuencias de experiencias traumáticas en la infancia y/o en la vida adulta. También apoyamos a quienes quieren obtener herramientas para enfrentar las adversidades de la cotidianeidad manteniéndose sanos.</p>
+        <p class="lede anim-in d3">En GamanZen acompañamos en el camino de reparación a personas que enfrentan las consecuencias de experiencias traumáticas en la infancia y/o en la vida adulta. También apoyamos a quienes quieren obtener herramientas para enfrentar las adversidades de la cotidianeidad manteniéndose sanos.</p>
         <blockquote class="hero-quote anim-in d4">
           «La resiliencia es el arte de navegar en los torrentes, el arte de metamorfosear el dolor para darle sentido; la capacidad de ser feliz incluso cuando tienes heridas en el alma»
           <cite>— Boris Cyrulnik</cite>
@@ -702,7 +707,7 @@
       <div class="actions">
         <a class="link-inline" href="https://wa.me/56991728186" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.6-.8-1.8-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-.3-.1-1.2-.4-2.2-1.4-.8-.7-1.4-1.6-1.5-1.9-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.2-.4.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.5 1.1 2.7c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.2-.2-.5-.3z"/><path d="M12 2a10 10 0 00-8.6 15L2 22l5.1-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1120.2 12 8.3 8.3 0 0112 20.2z"/></svg>
-          WhatsApp GamaZen
+          WhatsApp GamanZen
         </a>
         <a class="link-inline" href="tel:+56991728186">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.4 2.1L8 9.9a16 16 0 006 6l1.4-1.4a2 2 0 012.1-.4c.9.3 1.8.5 2.7.6a2 2 0 011.8 2.1z"/></svg>
@@ -719,7 +724,6 @@
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow"><span class="dot"></span> Nuestro modelo</span>
-      <h2>Un acompañamiento con dos puertas de entrada</h2>
       <p>Entendemos que no existe una única forma de abordar el sufrimiento psicológico, por ello nuestro enfoque terapéutico es integrativo y basado en la evidencia científica. <strong>Trabajamos con terapias y técnicas que han demostrado eficacia, seleccionándolas y combinándolas de manera flexible de acuerdo con las necesidades, características y momento vital de cada persona.</strong></p>
     </div>
     <div class="modelo-grid">
@@ -824,10 +828,15 @@ En otras palabras es la fuerza serena de quien atraviesa la tormenta conservando
     -->
 
     <div class="team-banner" data-parallax="0.06">
-      <div class="section-head reveal">
-        <h2 style="font-size:1.5rem;">Nuestro equipo</h2>
-        <p>Somos un grupo de profesionales que nos conocemos ya hace mucho tiempo. decidimos reunirnos tras la experiencia de atender muchos pacientes en modalidades de co-terapia con excelentes resultados. Todos hemos trabajado en instituciones públicas, universitarias y de salud privada, por lo que hemos visto los distintos tipos de perfiles de pacientes y los muchos tipos de atención, es así que pensamos un modelo que pudiera tomar todo lo necesario para mejorar la calidad de nuestros servicios y que resultara verdaderamente útil para nuestros pacientes. Valoramos el trabajo multidisciplinario, coordinado y sistemático. Vemos a nuestros pacientes de manera más simétrica que la atención médica habitual, creemos que son el mayor aporte a su propia mejoría, poniéndonos nosotros como facilitadores del cambio, no como lo poseedores de la verdad absoluta.
-Todos somo profesionales acreditados, con formación especializada en trauma y salud mental.</p>
+      <div class="team-banner-copy">
+        <div class="section-head reveal">
+          <h2 style="font-size:1.5rem;">Nuestro equipo</h2>
+          <p>Somos un grupo de profesionales que nos conocemos ya hace mucho tiempo. decidimos reunirnos tras la experiencia de atender muchos pacientes en modalidades de co-terapia con excelentes resultados. Todos hemos trabajado en instituciones públicas, universitarias y de salud privada, por lo que hemos visto los distintos tipos de perfiles de pacientes y los muchos tipos de atención, es así que pensamos un modelo que pudiera tomar todo lo necesario para mejorar la calidad de nuestros servicios y que resultara verdaderamente útil para nuestros pacientes. Valoramos el trabajo multidisciplinado, coordinado y sistemático. Vemos a nuestros pacientes de manera más simétrica que la atención médica habitual, creemos que son el mayor aporte a su propia mejoría, poniéndonos nosotros como facilitadores del cambio, no como los poseedores de la verdad absoluta.</p>
+          <p>Todos somos profesionales acreditados, con formación especializada en trauma y salud mental.</p>
+        </div>
+      </div>
+      <div class="team-banner-visual reveal">
+        <img src="assets/Equipo 2.JPG" alt="Equipo de GamanZen" loading="lazy">
       </div>
     </div>
     <div class="team-grid">
@@ -1028,7 +1037,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
         <div class="icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.5-7-10a5 5 0 019-3 5 5 0 019 3c0 5.5-7 10-7 10z"/></svg>
         </div>
-        <h3>Terapias de salud complementarias</h3>
+        <h3>Terapias de salud mental</h3>
         <p>Terapia ocupacional y técnicas de regulación que se suman al proceso clínico, adaptadas a las necesidades de cada paciente.</p>
       </div>
     </div>
@@ -1129,7 +1138,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-4.4-7-10.2A4.8 4.8 0 0112 7a4.8 4.8 0 017 3.8C19 16.6 12 21 12 21z"/><path d="M12 7V3M9 4l3-1 3 1"/></svg>
         </div>
         <span class="tag">Cuidado de quienes cuidan</span>
-        <h3>Satori 悟り<span class="plan-sub">Cuando la gota de lluvia recuerda que es océano</span></h3>
+        <h3>Satori<span class="plan-sub">Cuando la gota de lluvia recuerda que es océano</span></h3>
         <p class="plan-lede">¿Cómo se cuidan los que cuidan?</p>
         <p>Programa dirigido a profesionales de la salud, cuyo propósito es promover el bienestar personal y profesional, fortaleciendo recursos que permitan ejercer el cuidado de otros sin descuidar el propio bienestar.</p>
         <details class="mini-acc">
@@ -1197,13 +1206,12 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
 <section id="programas">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow on-mint"><span class="dot"></span> Programas corporativos GamaZen</span>
+      <span class="eyebrow on-mint"><span class="dot"></span> Programas corporativos GamanZen</span>
       <h2>Terapias de concientización y conexión</h2>
       <p>Espacios grupales y presenciales para equipos y organizaciones, con respaldo clínico y foco en la prevención.</p>
     </div>
 
     <div class="prog-intro">
-      <p style="color:var(--ink-soft); font-size:1.02rem;">Estos programas se complementan con nuestras salidas de terapia ocupacional en la naturaleza —trekking, yoga y jardinería terapéutica— pensadas para fortalecer la resiliencia desde el cuerpo, el vínculo y el entorno natural.</p>
       <div class="side">
         <h3>Cómo funcionan</h3>
         <ul>
@@ -1311,11 +1319,11 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
           <div class="field">
             <label for="motivo">Motivo de contacto</label>
             <select id="motivo" name="motivo">
-              <option>Consulta online (psicología / psiquiatría)</option>
-              <option>Terapias complementarias</option>
-              <option>Programas personales (Sangha / Tathatā / Pāramitā / Nagomi)</option>
-              <option>Programa corporativo para mi equipo</option>
-              <option>Salida presencial en la naturaleza</option>
+              <option>Consulta online (psiquiatría)</option>
+              <option>Consulta online (psicología)</option>
+              <option>Consulta terapéutica</option>
+              <option>Programas personales (Sangha / Tathatā / Pāramitā / Satori)</option>
+              <option>Programas corporativos</option>
               <option>Otro</option>
             </select>
           </div>
@@ -1380,8 +1388,8 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
     <div class="footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="assets/logo.png" alt="Logo GamaZen" width="44" height="44" loading="lazy">
-          <div class="name">GamaZen<span>Centro de Salud Integral para la Resiliencia SpA</span></div>
+          <img src="assets/logo.png" alt="Logo GamanZen" width="44" height="44" loading="lazy">
+          <div class="name">GamanZen<span>Centro de Salud Integral para la Resiliencia SpA</span></div>
         </div>
         <p class="desc">Bienestar con respaldo clínico. Acompañamiento integral para el trauma y la salud emocional.</p>
       </div>
@@ -1414,7 +1422,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 GamaZen — Centro de Salud Integral para la Resiliencia SpA</span>
+      <span>© 2026 GamanZen — Centro de Salud Integral para la Resiliencia SpA</span>
       <span>Diseñado bajo el principio Gaman: paciencia y dignidad.</span>
     </div>
   </div>
