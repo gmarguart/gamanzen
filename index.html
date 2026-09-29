@@ -1341,7 +1341,10 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
     </div>
 
     <div class="contact-grid">
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" action="https://formsubmit.co/contacto@gamanzen.cl" method="POST">
+        <input type="hidden" name="_subject" value="Nueva solicitud desde GamanZen">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
         <div class="two-col">
           <div class="field">
             <label for="nombre">Nombre completo</label>
@@ -1349,7 +1352,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
           </div>
           <div class="field">
             <label for="correo">Correo electrónico</label>
-            <input type="email" id="correo" name="correo" required placeholder="tu@correo.cl">
+            <input type="email" id="correo" name="email" required placeholder="tu@correo.cl">
           </div>
         </div>
         <div class="two-col">
@@ -1378,7 +1381,6 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
             Enviar solicitud
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-          <p class="form-msg" id="formMsg">Gracias, recibimos tu solicitud. Te contactaremos pronto.</p>
         </div>
       </form>
 
@@ -1533,13 +1535,6 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
     updateParallax();
   }
 
-  const form = document.getElementById('contactForm');
-  const msg = document.getElementById('formMsg');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    msg.classList.add('show');
-    form.reset();
-  });
 </script>
 
 </body>
