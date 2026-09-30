@@ -193,6 +193,13 @@
     font-size:clamp(3rem, 5vw, 5rem);
     line-height:0.93;
     letter-spacing:-.06em;
+    overflow-wrap:break-word;
+  }
+  @media (max-width:900px){
+    .section-head h2{font-size:clamp(2.1rem, 6.5vw, 3rem); line-height:1.05; letter-spacing:-.035em;}
+  }
+  @media (max-width:520px){
+    .section-head h2{font-size:clamp(1.75rem, 8vw, 2.1rem); line-height:1.1; letter-spacing:-.025em;}
   }
 
   /* ============ HEADER ============ */
@@ -303,6 +310,10 @@
     .hero-art{margin:0 auto; width:min(58vw, 260px);}
     .hero-art img{width:min(58vw, 260px);}
     .hero-ctas{grid-template-columns:1fr;}
+    .hero h1{font-size:clamp(2rem, 6vw, 3rem); line-height:1.1; letter-spacing:-.03em;}
+  }
+  @media (max-width:520px){
+    .hero h1{font-size:clamp(1.55rem, 7vw, 1.9rem); line-height:1.15; letter-spacing:-.02em;}
   }
 
   .anim-in{animation:riseIn .7s ease both;}
@@ -1341,10 +1352,8 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
     </div>
 
     <div class="contact-grid">
-      <form class="contact-form" id="contactForm" action="https://formsubmit.co/contacto@gamanzen.cl" method="POST">
-        <input type="hidden" name="_subject" value="Nueva solicitud desde GamanZen">
-        <input type="hidden" name="_template" value="table">
-        <input type="text" name="_honey" style="display:none">
+      <form class="contact-form" id="contactForm" action="enviar-contacto.php" method="POST">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="display:none">
         <div class="two-col">
           <div class="field">
             <label for="nombre">Nombre completo</label>
@@ -1381,6 +1390,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
             Enviar solicitud
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
+          <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
         </div>
       </form>
 
@@ -1534,6 +1544,38 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
     window.addEventListener('resize', updateParallax);
     updateParallax();
   }
+
+  const contactForm = document.getElementById('contactForm');
+  const formMsg = document.getElementById('formMsg');
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    submitButton.disabled = true;
+    formMsg.classList.remove('error');
+    formMsg.textContent = 'Enviando solicitud...';
+    formMsg.classList.add('show');
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'No se pudo enviar la solicitud.');
+      }
+
+      formMsg.textContent = result.message;
+      contactForm.reset();
+    } catch (error) {
+      formMsg.textContent = error.message || 'No se pudo enviar la solicitud. Inténtalo nuevamente.';
+      formMsg.classList.add('error');
+    } finally {
+      submitButton.disabled = false;
+    }
+  });
 
 </script>
 
