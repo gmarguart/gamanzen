@@ -255,8 +255,20 @@
 
   /* ============ HERO ============ */
   .hero{
-    padding:64px 0 0 0;
+    padding:64px 0 56px 0;
     overflow:hidden;
+    /* Velo crema sobre la foto para que el texto oscuro siga legible:
+       más denso a la izquierda (texto), más suave a la derecha (pagoda). */
+    background:
+      linear-gradient(90deg, rgba(253,251,247,.93) 0%, rgba(253,251,247,.85) 50%, rgba(253,251,247,.55) 100%),
+      url("assets/fondo_1.jpg") right center / cover no-repeat;
+  }
+  @media (max-width:900px){
+    .hero{
+      background:
+        linear-gradient(rgba(253,251,247,.88), rgba(253,251,247,.88)),
+        url("assets/fondo_1.jpg") 70% center / cover no-repeat;
+    }
   }
   .hero-grid{
     display:flex;
@@ -853,37 +865,6 @@ En otras palabras es la fuerza serena de quien atraviesa la tormenta conservando
     <div class="team-grid">
       <div class="team-card">
         <div class="team-photo">
-          <img src="assets/Camila.JPG" alt="Camila Martínez Ahumada">
-        </div>
-        <h3>Camila Martínez Ahumada</h3>
-        <p class="team-role">Psicóloga clínica</p>
-        <p class="team-spec">Trauma, psicoterapia EMDR y terapia sistémica</p>
-        <p class="team-bio">Psicóloga con más de dos décadas de trayectoria clínica, psicosocial y forense, trabajando con adultos, adolescentes, niños y familias. Se ha desempeñado además como perito forense en la Policía de Investigaciones de Chile.</p>
-        <details class="mini-acc">
-          <summary>Formación y trayectoria <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
-          <div class="team-detail">
-            <span class="tag">Formación</span>
-            <ul>
-              <li>Psicóloga y Licenciada en Psicología, Universidad Nacional Andrés Bello</li>
-              <li>Postítulo en Terapia Sistémica para Niños y Adolescentes, Pontificia Universidad Católica de Chile (2003–2004)</li>
-              <li>Diplomado en Psiquiatría y Psicología Forense en la Reforma Procesal Penal, Universidad de Chile (2005–2006)</li>
-              <li>Entrenamiento Básico en Psicoterapia EMDR, Partes I y II, EMDR Chile (2020–2021)</li>
-            </ul>
-            <span class="tag">Áreas de especialización</span>
-            <ul>
-              <li>Trauma y experiencias adversas, trauma complejo e infancia</li>
-              <li>Psicoterapia EMDR y regulación emocional</li>
-              <li>Maltrato y abuso sexual infantil, violencia de género</li>
-              <li>Intervención en crisis y atención a víctimas</li>
-            </ul>
-            <span class="tag">Enfoque de trabajo</span>
-            <p>Trabaja desde una mirada integrativa, incorporando herramientas de psicoterapia EMDR y terapia sistémica, poniendo especial atención en el procesamiento de experiencias traumáticas y el fortalecimiento de recursos personales.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="team-card">
-        <div class="team-photo">
           <img src="assets/Tamara.JPG" alt="Tamara Galleguillos">
         </div>
         <h3>Tamara Galleguillos</h3>
@@ -981,6 +962,37 @@ En otras palabras es la fuerza serena de quien atraviesa la tormenta conservando
             </ul>
             <span class="tag">Enfoque de trabajo</span>
             <p>Integra la atención clínica, la protección de la infancia y el acompañamiento de niños, adolescentes y sus familias desde una mirada especializada, humana y multidisciplinaria.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="team-card">
+        <div class="team-photo">
+          <img src="assets/Camila.JPG" alt="Camila Martínez Ahumada">
+        </div>
+        <h3>Camila Martínez Ahumada</h3>
+        <p class="team-role">Psicóloga clínica</p>
+        <p class="team-spec">Trauma, psicoterapia EMDR y terapia sistémica</p>
+        <p class="team-bio">Psicóloga con más de dos décadas de trayectoria clínica, psicosocial y forense, trabajando con adultos, adolescentes, niños y familias. Se ha desempeñado además como perito forense en la Policía de Investigaciones de Chile.</p>
+        <details class="mini-acc">
+          <summary>Formación y trayectoria <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <div class="team-detail">
+            <span class="tag">Formación</span>
+            <ul>
+              <li>Psicóloga y Licenciada en Psicología, Universidad Nacional Andrés Bello</li>
+              <li>Postítulo en Terapia Sistémica para Niños y Adolescentes, Pontificia Universidad Católica de Chile (2003–2004)</li>
+              <li>Diplomado en Psiquiatría y Psicología Forense en la Reforma Procesal Penal, Universidad de Chile (2005–2006)</li>
+              <li>Entrenamiento Básico en Psicoterapia EMDR, Partes I y II, EMDR Chile (2020–2021)</li>
+            </ul>
+            <span class="tag">Áreas de especialización</span>
+            <ul>
+              <li>Trauma y experiencias adversas, trauma complejo e infancia</li>
+              <li>Psicoterapia EMDR y regulación emocional</li>
+              <li>Maltrato y abuso sexual infantil, violencia de género</li>
+              <li>Intervención en crisis y atención a víctimas</li>
+            </ul>
+            <span class="tag">Enfoque de trabajo</span>
+            <p>Trabaja desde una mirada integrativa, incorporando herramientas de psicoterapia EMDR y terapia sistémica, poniendo especial atención en el procesamiento de experiencias traumáticas y el fortalecimiento de recursos personales.</p>
           </div>
         </details>
       </div>
