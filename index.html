@@ -257,18 +257,6 @@
   .hero{
     padding:64px 0 56px 0;
     overflow:hidden;
-    /* Velo crema sobre la foto para que el texto oscuro siga legible:
-       más denso a la izquierda (texto), más suave a la derecha (pagoda). */
-    background:
-      linear-gradient(90deg, rgba(253,251,247,.93) 0%, rgba(253,251,247,.85) 50%, rgba(253,251,247,.55) 100%),
-      url("assets/fondo_1.jpg") right center / cover no-repeat;
-  }
-  @media (max-width:900px){
-    .hero{
-      background:
-        linear-gradient(rgba(253,251,247,.88), rgba(253,251,247,.88)),
-        url("assets/fondo_1.jpg") 70% center / cover no-repeat;
-    }
   }
   .hero-grid{
     display:flex;
@@ -504,6 +492,8 @@
   .plan-2 .plan-num{background:var(--leaf-deep);} .plan-2 .icon-wrap{background:rgba(48,116,50,.14); color:var(--leaf-deep);}
   .plan-3 .plan-num{background:var(--olive-dark);} .plan-3 .icon-wrap{background:rgba(113,133,0,.16); color:var(--olive-dark);}
   .plan-4 .plan-num{background:var(--teal);} .plan-4 .icon-wrap{background:rgba(91,117,112,.14); color:var(--teal-deep);}
+  .plan-5 .plan-num{background:var(--leaf-deep);} .plan-5 .icon-wrap{background:rgba(48,116,50,.14); color:var(--leaf-deep);}
+  details.mini-acc p{margin:10px 0 0 0; font-size:.88rem;}
 
   .plan-card .tag{
     display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
@@ -715,8 +705,8 @@
           <cite>— Boris Cyrulnik</cite>
         </blockquote>
         <div class="hero-ctas anim-in d4">
-          <a href="#contacto" class="btn btn-teal">
-            Inicia tu proceso de sanación
+          <a href="#planes" class="btn btn-teal">
+            Conoce nuestros programas
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="#modelo" class="btn btn-ghost">Conoce nuestro modelo</a>
@@ -1232,6 +1222,35 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
         </details>
         <p class="plan-target"><strong>Dirigido a:</strong> profesionales de la salud. El único requisito de ingreso es ejercer como profesional de la salud. Se sugiere no cursar un cuadro psiquiátrico mayor agudo, ya que estos encuentros grupales no permiten un abordaje completamente personalizado.</p>
       </div>
+
+      <div class="plan-card plan-5">
+        <div class="plan-num">5</div>
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="2.6"/><path d="M12 2a3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3 3 3 0 013-3zM12 16a3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3 3 3 0 013-3zM2 12a3 3 0 013-3 3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3zM16 12a3 3 0 013-3 3 3 0 013 3 3 3 0 01-3 3 3 3 0 01-3-3z"/></svg>
+        </div>
+        <span class="tag">Bienestar y autocuidado</span>
+        <h3>Nagomi<span class="plan-sub">Un espacio para volver a ti</span></h3>
+        <p class="plan-lede">Una pausa para conectar contigo, disfrutar y descubrir nuevas formas de cuidarte.</p>
+        <p>Nagomi ofrece un espacio seguro, cercano y de confianza para abordar de manera integral los cambios físicos, cognitivos y emocionales: el sueño, la alimentación, la sexualidad, los vínculos y el momento vital. El foco está en favorecer la comprensión de la propia experiencia, identificar necesidades y desarrollar estrategias de autocuidado realistas y sostenibles, respetando la historia, el contexto y el ritmo de cada participante.</p>
+        <details class="mini-acc">
+          <summary>La experiencia <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <p>Es una experiencia de autocuidado y encuentro entre mujeres que combina bienestar, movimiento, creatividad, espacios de conversación y reflexión. Un recorrido para escuchar el cuerpo, conectar con las emociones, fortalecer vínculos y descubrir nuevas formas para sentirse mejor y en equilibrio.</p>
+          <p>A través de experiencias lúdicas, artísticas y prácticas se invita a reconectar con distintas dimensiones de las participantes, integrando temas propios de esta desafiante etapa vital.</p>
+        </details>
+        <details class="mini-acc">
+          <summary>Objetivos del programa <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+          <ul>
+            <li>Favorecer el autoconocimiento, facilitando la identificación de necesidades, emociones y recursos personales.</li>
+            <li>Favorecer el encuentro y la conexión entre mujeres, creando un espacio seguro para compartir experiencias, sentirse acompañadas y fortalecer redes de apoyo.</li>
+            <li>Promover prácticas de autocuidado integral cognitivo, emocional y corporal.</li>
+            <li>Entregar herramientas prácticas para el bienestar emocional, favoreciendo la regulación del estrés, la autocompasión y una relación más consciente con una misma.</li>
+            <li>Generar espacios de disfrute, creatividad y expresión, incorporando experiencias lúdicas que permitan salir de la rutina y recuperar espacios propios.</li>
+            <li>Acompañar los cambios propios de esta etapa vital desde una mirada integral, incorporando información sobre la transición hacia la menopausia sin convertirla en el único eje de la experiencia.</li>
+            <li>Impulsar un autocuidado sostenible, ayudando a cada participante a identificar pequeñas acciones que pueda integrar de manera realista en su vida cotidiana.</li>
+          </ul>
+        </details>
+        <p class="plan-target"><strong>Dirigido a:</strong> mujeres de 45 a 55 años que sienten que están atravesando una etapa de cambios y quieren regalarse un espacio propio.</p>
+      </div>
     </div>
 
     <!-- Programa reservado para una futura reactivación:
@@ -1265,7 +1284,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
     <div class="planes-cta">
       <p>¿No sabes cuál es el plan indicado para ti?</p>
       <a href="#contacto" class="btn btn-teal">
-        Conversemos sobre tu proceso
+        Agenda una evaluación
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
@@ -1393,7 +1412,7 @@ Y consultas presenciales en las atenciones de Yoga sensible a trauma, arte terap
               <option>Consulta online (psiquiatría)</option>
               <option>Consulta online (psicología)</option>
               <option>Consulta terapéutica</option>
-              <option>Programas personales (Sangha / Tathatā / Pāramitā / Satori)</option>
+              <option>Programas personales (Sangha / Tathatā / Pāramitā / Satori / Nagomi)</option>
               <option>Programas corporativos</option>
               <option>Otro</option>
             </select>
